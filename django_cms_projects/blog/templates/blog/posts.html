@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Posts {% endblock title %}
+{% block css %}
+   <link rel="stylesheet" type="text/css" href="{% static 'blog/css/posts.css' %}">
+{% endblock css %}
+
+
+  {% block content %}
+
+<div class="container" >
+
+        <div class="center">
+           <h1 class="seo_title ">Tony Robbins' Blog</h1>        
+           <div class="seo-excerpt  " style="padding-bottom:50px;">   
+              <div id="flow-text">
+                         <p>At your core, you know the details of what it takes to be happy, successful and maintain a peaceful state of mind. However, you may find it difficult to apply these tactics to your daily life. No one is perfect, and this knowledge is reflected in the teachings of Tony Robbins. You can’t always know the best thing to do in every situation, but you can continually work to feel like the best version of yourself possible.</p>
+                         <p>With the help of an instructional guide, also known as one of Tony Robbins’ detailed stories, you can receive the extra motivational boost you need to work toward your goals. Tony Robbins and his team have worked tirelessly to create downloadable stories that are not only inspiring, but useful for people in all stages of life. Get started reading one of the many stories available today, and get ready to watch your life change for the better.
+                         </p>
+              </div>
+              <a id="excerpt_read_more">...Read More</a>
+              <a id="excerpt_read_less" class="readHide">...Read Less</a>
+           </div>
+        </div>
+        <div class="row">
+        {% for post in pst %} 
+          <div class="wrapper col m4 s4">
+            
+            <div class="card radius shadowDepth1">
+                <div class="card__image border-tlr-radius">
+                    <img src="{% static 'blog/images/guitar.jpg' %}" alt="{{ post.title }}" class="border-tlr-radius">
+                </div>
+
+                <div class="card__content card__padding">
+                    <div class="card__share">
+                        <div class="card__social">  
+                            <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
+                            <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
+                            <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>
+                        </div>
+
+                        <a id="share" class="share-toggle share-icon" href="{% url 'post' post.id %}"></a>
+                    </div>
+
+                    <div class="card__meta">
+                        <a href="{% url 'post' %}{{ post.id }}">{{ post.category.name }}</a>
+                        <time>17th March</time>
+                    </div>
+
+                    <article class="card__article">
+                        <h5><a href="{% url 'post' %}{{ post.id }}">{{ post.title }}</a></h5>
+
+                        <p>{{ post.content|truncatewords:20 }}</p>
+                    </article>
+                </div>
+
+                <div class="card__action">
+                    
+                    <div class="card__author">
+                        <a href="{% url 'post' %}{{ post.id }}"><img src="{% static 'images/orsch.jpg' %}" alt="user"></a> 
+                        <div class="card__author-content">
+                            By <a href="#">{{ post.author }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        {% empty %}
+          <div class="center"><h1>(vide)</h1></div>
+        {% endfor %}
+        </div>
+</div>
+
+  {% endblock content %}

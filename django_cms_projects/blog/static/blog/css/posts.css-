@@ -1,0 +1,54 @@
+ html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
+.post-list{padding: 60px 0px 40px;}
+.post .post-content {
+    padding: 29px 35px 10px;
+    text-align: left;
+}
+h5.micro {
+    font-size: 15px;
+    font-family: "Georgia Italic", "Times New Roman", serif;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+h4.post-title {
+    font-family: proxima_nova_regular, Helvetica, san-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+h4.post-title a {
+    color: rgb(0, 0, 0);
+}
+.link-more-grey {
+    font-weight: 300;
+    color: rgb(170, 170, 170);
+    transition: color 0.3s;
+}
+.post-item-container {
+    background: url("../images/porsch.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 370px;
+    width: 370px;
+}
+.div-img{
+    background: url("../images/porsch.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 370px;
+    width: 370px;
+}
+.blog-container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}

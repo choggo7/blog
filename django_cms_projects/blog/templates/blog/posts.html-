@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Posts {% endblock title %}
+{% block css %}
+   <link rel="stylesheet" type="text/css" href="{% static 'css/posts.css' %}">
+{% endblock css %}
+
+
+  {% block content %}
+  <div class="divider"></div>
+    <section class="section-posts post-list">
+        <div class="blog-container center" >
+                <style>.section-posts h5.seo_title { margin-bottom:0;}</style>
+                <div class="container">
+                	<h1 class="seo_title ">Tony Robbins' Blog</h1>
+                    
+                  <div class="seo-excerpt  " style="padding-bottom:50px;">   
+                      <div id="flow-text">
+                         <p>At your core, you know the details of what it takes to be happy, successful and maintain a peaceful state of mind. However, you may find it difficult to apply these tactics to your daily life. No one is perfect, and this knowledge is reflected in the teachings of Tony Robbins. You can’t always know the best thing to do in every situation, but you can continually work to feel like the best version of yourself possible.</p>
+                         <p>With the help of an instructional guide, also known as one of Tony Robbins’ detailed stories, you can receive the extra motivational boost you need to work toward your goals. Tony Robbins and his team have worked tirelessly to create downloadable stories that are not only inspiring, but useful for people in all stages of life. Get started reading one of the many stories available today, and get ready to watch your life change for the better.
+                         </p>
+                      </div>
+                      <a id="excerpt_read_more">...Read More</a>
+                      <a id="excerpt_read_less" class="readHide">...Read Less</a>
+                  </div>
+                </div>
+                <style>.post .color3:before{background-color: #6d166d;}</style>
+                        
+                <div class="row" >   
+                   {% for post in pst %}                 
+                    <div class="blog-item col s6 m4 l4">
+                        <div class="post col s12 m12 l12">
+                            <a class="post-item-image" href="{% url 'post' %}{{ post.id }}">
+                                <div class="post-item-container ">
+                                    <img class="ico-handshake cat-icon" src="Leadership_Impact.png"> 
+                                </div>
+                            </a>
+
+                            <div class="post-content">
+                                <h5 style="color: #6d166d;" class="micro">Leadership &amp; Impact</h5>
+                                <div class="archive_cat_line" style="background-color: #6d166d;"></div>
+                                <h4 class="post-title">
+                                    <a href="{% url 'post' %}{{ post.id }}" class="h3" > {{post.id}} {{ post.title }}</a>
+                                </h4>
+
+                                <a href="{% url 'post' %}{{ post.id }}" class="link-more link-more-grey">Read More</a>
+                            </div><!-- /.post-content -->
+                        </div><!-- /.post -->
+                    </div><!-- /.col-sm-3 col-sm-6 -->
+                   {% empty %}
+                       <h1>(vide)</h1>
+                   {% endfor %}
+                </div>
+
+                
+
+        </div>
+    </section>
+  {% endblock content %}
+
+
+

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+{% endblock %}
+
+
+ 
+                   {% block title %}
+                      Post {{ pst.title }}
+                   {% endblock title %}
+{% block content %}
+<div style="margin-top:-20px; width:100%;height: 350px; "> <img style="width:100%;height: 100%; " src="{% static 'blog/images/sahara.jpg' %}"> </div>
+
+<div class="container center " >   
+                   {% for post in pst %}
+                    <h2>{{ post.title }}</h2>
+                    <div> <img src="{{ post.pic.url }}"> </div>
+
+                                   
+			         {{ post.content|linebreaks }}
+                   {% empty %}
+                       <h1>(vide)</h1>
+                   {% endfor %}
+</div>  
+
+{% endblock content %}           
